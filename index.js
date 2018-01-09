@@ -12,7 +12,7 @@ import Promise from 'bluebird';
 /**
 * Importing custom modules for routing
 */
-import auth from './routes/authentication/authentication';
+import authentication from './routes/authentication/authentication';
 import users from './routes/users/users';
 
 // const mongodbConnector = Promise.promisifyAll(mongoose);
@@ -42,14 +42,14 @@ mongoose.connect(process.env.MONGODB_URL, { useMongoClient: true })
   console.log(`Failed to connect MongoDB ${err}`);
 });
 
+// When angular project is build to client directory then use following commented line
+app.use(express.static(path.join(__dirname, 'client')));
+
 /**
 * Using custom routes
 */
-app.use("/api/auth", auth);
+app.use("/api/authentication", authentication);
 app.use("/api/users", users);
-
-// When angular project is build to client directory then use following commented line
-app.use(express.static(path.join(__dirname, 'client')));
 
 /**
 * Catching all other routes which is not defined
