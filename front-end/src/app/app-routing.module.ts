@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 // Importing Custom Components
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const appRoutes: Routes = [
     { 
@@ -13,6 +14,10 @@ const appRoutes: Routes = [
     {
         path: 'dashboard',
         component: DashboardComponent // The Dashboard Route
+    },
+    {
+        path: 'register',
+        component: RegisterComponent // The Dashboard Route
     },
     { 
         path: '**', 
