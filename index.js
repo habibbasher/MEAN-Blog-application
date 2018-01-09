@@ -49,15 +49,15 @@ app.use("/api/auth", auth);
 app.use("/api/users", users);
 
 // When angular project is build to client directory then use following commented line
-// app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(path.join(__dirname, 'client')));
 
 /**
 * Catching all other routes which is not defined
 */
 app.get('/*', (req, res) => {
   // When angular project is build to client directory then use following commented line
-  // res.sendFile(path.join(__dirname, 'client/index.html'));
-  res.sendFile(path.join(__dirname, './index.html'));
+  res.sendFile(path.join(__dirname, 'client/index.html'));
+  // res.sendFile(path.join(__dirname, './index.html'));
 });
 /**
 * Server listening to specified port
